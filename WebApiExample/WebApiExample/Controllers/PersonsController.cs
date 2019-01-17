@@ -50,7 +50,7 @@ namespace WebApiExample.Controllers
         }
 
         // PUT api/persons/5
-        [HttpPut]
+        [HttpPut("{id}")]
         public ActionResult<Person> Put(int id, Person person)
         {
             var updatedPerson = _personRepository.Update(id, person);

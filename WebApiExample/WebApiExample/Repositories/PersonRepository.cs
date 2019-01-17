@@ -25,8 +25,8 @@ namespace WebApiExample.Repositories
 
         public void Delete(int id)
         {
-            var person = Read(id);
-            _context.Remove(person);
+            var deletedPerson = Read(id);
+            _context.Remove(deletedPerson);
             _context.SaveChanges();
             return;
         }
@@ -49,9 +49,15 @@ namespace WebApiExample.Repositories
 
         public Person Update(int id, Person person)
         {
-            _context.Update(person);
-            _context.SaveChanges();
-            return person;
+            var updatedPerson = Read(id);
+            if (updatedPerson == null)
+                throw new Exception("Person not found");
+            else
+            {
+                _context.Update(person);
+                _context.SaveChanges();
+                return person;
+            }
         }
     }
 }
