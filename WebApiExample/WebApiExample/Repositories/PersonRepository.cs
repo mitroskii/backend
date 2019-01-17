@@ -18,12 +18,17 @@ namespace WebApiExample.Repositories
 
         public Person Create(Person person)
         {
-            throw new NotImplementedException();
+            _context.Add(person);
+            _context.SaveChanges();
+            return person;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var person = Read(id);
+            _context.Remove(person);
+            _context.SaveChanges();
+            return;
         }
 
         public List<Person> Read()
@@ -44,7 +49,9 @@ namespace WebApiExample.Repositories
 
         public Person Update(int id, Person person)
         {
-            throw new NotImplementedException();
+            _context.Update(person);
+            _context.SaveChanges();
+            return person;
         }
     }
 }

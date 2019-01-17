@@ -40,5 +40,29 @@ namespace WebApiExample.Controllers
             var person = _personRepository.Read(id);
             return new JsonResult(person);
         }
+
+        // POST api/persons
+        [HttpPost]
+        public ActionResult<Person> Post(Person person)
+        {
+            var newPerson = _personRepository.Create(person);
+            return new JsonResult(newPerson);
+        }
+
+        // PUT api/persons/5
+        [HttpPut]
+        public ActionResult<Person> Put(int id, Person person)
+        {
+            var updatedPerson = _personRepository.Update(id, person);
+            return new JsonResult(updatedPerson);
+        }
+
+        // DELETE api/persons
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
+        {
+            _personRepository.Delete(id);
+            return new OkResult();
+        }
     }
 }
