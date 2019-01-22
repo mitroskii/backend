@@ -47,13 +47,8 @@ namespace WebApiExample.Repositories
                 .FirstOrDefault(p =>p.Id==id);
         }
 
-        public Person Update(int id, Person person)
+        public Person Update(Person person)
         {
-            var updatedPerson = Read(id);
-            if (updatedPerson == null)
-                throw new Exception("Person not found");
-            else
-            {
                 _context.Update(person);
                 _context.SaveChanges();
                 return person;

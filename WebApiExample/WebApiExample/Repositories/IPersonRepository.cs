@@ -11,7 +11,7 @@ namespace WebApiExample.Repositories
         Person Create(Person person);
         List<Person> Read();
         Person Read(int id);
-        Person Update(int id, Person person);
+        Person Update(Person person);
         void Delete(int id);
     }
 }
