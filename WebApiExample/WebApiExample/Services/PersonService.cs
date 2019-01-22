@@ -24,7 +24,7 @@ namespace WebApiExample.Services
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _personRepository.Delete(id);
         }
 
         public List<Person> Read()

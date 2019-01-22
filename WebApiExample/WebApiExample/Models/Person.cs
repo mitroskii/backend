@@ -11,17 +11,12 @@ namespace WebApiExample.Models
         {
             Phone = new HashSet<Phone>();
         }
-        
-        public Person(string name, short? age)
-        {
-            Name = name;
-            Age = age;
-        }
 
         public long Id { get; set; }
         [StringLength(10)]
         public string Name { get; set; }
         public short? Age { get; set; }
+        public string Psw { get; set; }
 
         [InverseProperty("Person")]
         public virtual ICollection<Phone> Phone { get; set; }

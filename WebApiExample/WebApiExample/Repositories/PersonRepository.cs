@@ -43,6 +43,7 @@ namespace WebApiExample.Repositories
         {
             //SELECT * FROM PERSON WHERE ID={id};
             return _context.Person
+                .AsNoTracking()
                 .Include(p=>p.Phone)
                 .FirstOrDefault(p =>p.Id==id);
         }
